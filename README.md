@@ -7,10 +7,10 @@
 </p>
 
 <p align="center">
-📥 Ordered UI flow elements controlled as stack 📤
+📥 Order custom flow UI using stack 📤
 </p>
 <p align="center">
-🔗 Enforce sequential interaction 🔗
+🔗 Enforce sequential user interaction 🔗
 </p>
 <p align="center">
 🗂 Focus user attention on one flow step at a time 🗂
@@ -172,10 +172,10 @@ let topBarAppearance: StackItemAppearance.TopBar = {
 		popButtonAppearance = StackItemAppearance.TopBar.Button(icon: UIImage(named: "back")!)
 		pushButtonAppearance = StackItemAppearance.TopBar.Button(icon: UIImage(named: "forth")!)
 	} else { // Use text
-		let popButtonTitle = NSAttributedString(string: "\(currentStep.prevStep?.shortSymbol ?? "❌")⬅️", attributes: [.foregroundColor : UIColor.blue])
+		let popButtonTitle = NSAttributedString(string: "♦️⬅️", attributes: [.foregroundColor : UIColor.blue])
 		popButtonAppearance = StackItemAppearance.TopBar.Button(title: popButtonTitle)
 
-		let pushButtonTitle = NSAttributedString(string: "➡️\(currentStep.nextStep?.shortSymbol ?? "❌")", attributes: [.foregroundColor : UIColor.blue])
+		let pushButtonTitle = NSAttributedString(string: "➡️💎", attributes: [.foregroundColor : UIColor.blue])
 		pushButtonAppearance = StackItemAppearance.TopBar.Button(title: pushButtonTitle)
 	}
 
@@ -298,9 +298,11 @@ class MyFlowController: UIViewController {
 
     private var currentStep: MyFlowStep = .none {
 		didSet {
-			// Get identity of the current step, as well as its bounding neighbor steps
+			// Get identity of the current step
 
 			let itemTitle = currentStep.title
+
+			// You can optionall use bounding steps' identity for something like setting custom navigation buttons
 
 			let prevItemSymbol = currentStep.prevStep?.shortSymbol
 			let nextItemSymbol = currentStep.nextStep?.shortSymbol
