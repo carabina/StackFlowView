@@ -7,7 +7,7 @@
 </p>
 
 <p align="center">
-📥 Order custom flow UI using stack 📤
+📥 Build custom UI flow using stack order 📤
 </p>
 <p align="center">
 🔗 Enforce sequential user interaction 🔗
